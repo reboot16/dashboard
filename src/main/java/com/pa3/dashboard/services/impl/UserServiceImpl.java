@@ -1,39 +1,49 @@
 package com.pa3.dashboard.services.impl;
 
-import com.pa3.dashboard.models.User;
+import com.pa3.dashboard.models.entities.User;
+import com.pa3.dashboard.repositories.RoleRepository;
 import com.pa3.dashboard.repositories.UserRepository;
 import com.pa3.dashboard.services.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 
 import java.util.List;
+import java.util.Optional;
 
 public class UserServiceImpl implements UserService {
 
     @Autowired
     UserRepository userRepository;
 
+    @Autowired
+    RoleRepository roleRepository;
+
     @Override
     public List<User> getAllUser() {
-        return null;
+        return userRepository.findAll();
     }
 
     @Override
-    public List<User> getAllUserActive() {
-        return null;
+    public List<User> getAllUserActive(boolean active) {
+        return userRepository.findByActive(active);
     }
 
     @Override
     public List<User> getAllUserByRole(int roleId) {
-        return null;
+        return userRepository.findByRole(roleId);
     }
 
     @Override
-    public User getUserById(int id) {
-        return null;
+    public Optional<User> getUserById(int id) {
+        return userRepository.findById(id);
     }
 
     @Override
     public User createUser(User user) {
+        if(userRepository.existsById(user.getId()))
+        {
+
+        }
+
         return null;
     }
 

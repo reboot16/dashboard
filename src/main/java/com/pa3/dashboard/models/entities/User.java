@@ -1,6 +1,7 @@
-package com.pa3.dashboard.models;
+package com.pa3.dashboard.models.entities;
 
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+import com.pa3.dashboard.models.entities.Role;
 import lombok.Data;
 import org.hibernate.annotations.OnDelete;
 import org.hibernate.annotations.OnDeleteAction;
